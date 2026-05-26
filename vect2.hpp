@@ -10,7 +10,8 @@ class vect2
 		vect2();
 		vect2(const vect2 &ref);
 		~vect2();
-		vect2	&operator=(const vect &ref)
+		vect2(int x, int y);
+		vect2	&operator=(const vect2 &ref);
 		int	operator[](int index) const;
 		int	&operator[](int index);
 		vect2	&operator++();

@@ -2,6 +2,7 @@
 
 vect2::vect2() { x = 0; y = 0; }
 vect2::~vect2() {}
+vect2::vect2(int x, int y) { this->x = x; this->y = y; }
 vect2::vect2(const vect2 &ref) { x = ref.x; y = ref.y; }
 vect2 &vect2::operator=(const vect2 &ref)
 {
@@ -19,7 +20,7 @@ vect2		&vect2::operator++()
 {
 	x++;
 	y++;
-	return *this
+	return *this;
 }
 
 vect2		vect2::operator++(int)
@@ -75,18 +76,18 @@ vect2		&vect2::operator-=(const vect2 &ref)
 	return *this;
 }
 
-vect2		vect2::operator*(const vect2 &ref) const
+vect2		vect2::operator*(int scalar) const
 {
 	vect2 tmp(*this);
 
-	tmp.x *= ref.x;
-	tmp.y *= ref.y;
+	tmp.x *= scalar;
+	tmp.y *= scalar;
 	return tmp;
 }
 
-vect2		&vect2::operator*=(const vect2 &ref)
+vect2		&vect2::operator*=(int scalar)
 {
-	*this = *this * ref;
+	*this = *this * scalar;
 	return *this;
 }
 
@@ -99,9 +100,9 @@ vect2		vect2::operator-() const
 	return cpy;
 }
 
-vect2		vect2::operator*(int scalar, const vect2 &ref) const
+vect2		operator*(int scalar, const vect2 &ref)
 {
-	vect2 cpy(*this);
+	vect2 cpy(ref);
 
 	cpy *= scalar;
 	return cpy;
